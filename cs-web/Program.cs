@@ -18,8 +18,15 @@
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder();
 WebApplication app = builder.Build();
-app.MapGet("/", () => "Hello World!");
+
+//app.MapGet("/", () => "Hello World!");
 //app.Run();
-await app.StartAsync();
-await Task.Delay(10000);
-await app.StopAsync();
+
+//await app.StartAsync();
+//await Task.Delay(10000);
+//await app.StopAsync();
+
+app.UseWelcomePage();
+app.Run();
+
+//public delegate Task RequestDelegate(HttpContext context);
