@@ -26,7 +26,24 @@ WebApplication app = builder.Build();
 //await Task.Delay(10000);
 //await app.StopAsync();
 
-app.UseWelcomePage();
+//app.Run(async (context) => await context.Response.WriteAsync("Hello Ivanov!"));
+//app.Run(HandleRequst);
+
+//app.UseWelcomePage();
+
+int x = 2;
+app.Run(async (context) =>
+{
+    x = x * 2;
+    await context.Response.WriteAsync($"Result: {x}");
+});
 app.Run();
 
 //public delegate Task RequestDelegate(HttpContext context);
+
+//IApplicationBuilder.Run(RequestDelegate handler)
+
+//async Task HandleRequst(HttpContext context)
+//{
+//    await context.Response.WriteAsync("Hello Ivanov!");
+//}
